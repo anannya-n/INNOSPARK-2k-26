@@ -1,0 +1,16 @@
+{
+  "name": "green-bond-impact-reporter",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm:start --workspace backend\" \"npm:start --workspace frontend\"",
+    "start": "node backend/index.js",
+    "build": "npm --workspace frontend run build"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}

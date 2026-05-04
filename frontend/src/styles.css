@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  font-family: 'Outfit', sans-serif;
+  background: radial-gradient(circle at top left, rgba(74,103,65,0.42), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(11,36,20,0.92), transparent 35%),
+    linear-gradient(180deg, #0B2414 0%, #07180C 100%);
+}
+
+body {
+  @apply bg-forest text-mint antialiased;
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at top, rgba(232,243,237,0.08), transparent 28%),
+    radial-gradient(circle at bottom, rgba(255,255,255,0.06), transparent 32%);
+  pointer-events: none;
+}
+
+.font-serif {
+  font-family: 'Playfair Display', serif;
+}
+
+.background-layer {
+  position: absolute;
+  inset: 0;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.18;
+  filter: blur(20px);
+}
+
+.layer-1 {
+  background-image: radial-gradient(circle at 20% 20%, rgba(232,243,237,0.16), transparent 22%),
+    radial-gradient(circle at 80% 40%, rgba(74,103,65,0.24), transparent 20%);
+}
+
+.layer-2 {
+  background-image: radial-gradient(circle at 30% 80%, rgba(255,255,255,0.08), transparent 28%),
+    radial-gradient(circle at 70% 20%, rgba(74,103,65,0.18), transparent 24%);
+}
+
+.layer-3 {
+  background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800"%3E%3Cg fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="2"%3E%3Cpath d="M100 420 C 240 300 360 540 500 420"/%3E%3Cpath d="M200 700 C 310 560 450 760 620 620"/%3E%3Cpath d="M90 120 C 180 60 260 220 380 140"/%3E%3C/g%3E%3C/svg%3E');
+  background-size: cover;
+  opacity: 0.12;
+}
+
+.masonry-layout {
+  column-count: 1;
+  column-gap: 1.75rem;
+}
+
+@media (min-width: 768px) {
+  .masonry-layout {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 1280px) {
+  .masonry-layout {
+    column-count: 3;
+  }
+}
+
+.masonry-layout > * {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 1.75rem;
+  break-inside: avoid;
+}
+
+.seedling-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  border-radius: 32px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(232,243,237,0.08);
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.2);
+}
+
+.seedling-animation svg {
+  width: 90px;
+  height: 90px;
+  animation: sprout 1.6s ease-in-out infinite;
+}
+
+@keyframes sprout {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-6px) scale(1.02); }
+}
+
+.corner-sticker {
+  position: fixed;
+  width: 120px;
+  height: 120px;
+  z-index: 5;
+  pointer-events: none;
+  filter: drop-shadow(0 14px 36px rgba(0,0,0,0.25));
+  animation: floaty 8s ease-in-out infinite;
+}
+
+.sticker-leaf {
+  top: 2rem;
+  left: 2rem;
+  width: 160px;
+  height: 160px;
+  background-image: url('/monstera.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  mix-blend-mode: screen;
+  filter: invert(1) hue-rotate(180deg) drop-shadow(0 14px 36px rgba(0,0,0,0.5));
+}
+
+.sticker-stone {
+  bottom: 3rem;
+  left: 3rem;
+  background: radial-gradient(circle at 40% 40%, rgba(190,191,183,0.95), rgba(83,92,80,0.7));
+  border-radius: 48% 52% 62% 38% / 49% 63% 37% 51%;
+}
+
+.sticker-butterfly {
+  top: 4rem;
+  right: 3rem;
+  width: 110px;
+  height: 110px;
+  background: radial-gradient(circle at 50% 40%, rgba(232,243,237,0.9), rgba(74,103,65,0.22));
+  border-radius: 52% 48% 55% 45% / 48% 56% 44% 52%;
+}
+
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-11px); }
+}
+
+button {
+  font: inherit;
+}
+
+::selection {
+  background: rgba(74,103,65,0.35);
+}
+
+@keyframes live-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(0, 255, 136, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0); }
+}
+
+.animate-live-pulse {
+  animation: live-pulse 2s infinite;
+}

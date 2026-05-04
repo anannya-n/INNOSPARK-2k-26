@@ -1,0 +1,340 @@
+/* ═══════════════════════════════════════════════
+   GREEN BOND IMPACT REPORTER — Landing Page
+   ═══════════════════════════════════════════════ */
+
+.landing-root {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  background: radial-gradient(circle at 20% 10%, rgba(0,255,136,0.06), transparent 40%),
+    radial-gradient(circle at 80% 90%, rgba(74,103,65,0.12), transparent 40%),
+    linear-gradient(180deg, #040d08 0%, #0B2414 40%, #07180C 100%);
+}
+
+/* ─── Decorative blobs ─── */
+.landing-blob {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(100px);
+  opacity: 0.35;
+}
+
+.landing-blob-1 {
+  width: 500px;
+  height: 500px;
+  top: -10%;
+  left: -5%;
+  background: radial-gradient(circle, rgba(0,255,136,0.25), transparent 70%);
+  animation: blobFloat1 12s ease-in-out infinite;
+}
+
+.landing-blob-2 {
+  width: 400px;
+  height: 400px;
+  bottom: 10%;
+  right: -5%;
+  background: radial-gradient(circle, rgba(163,182,141,0.2), transparent 70%);
+  animation: blobFloat2 15s ease-in-out infinite;
+}
+
+.landing-blob-3 {
+  width: 300px;
+  height: 300px;
+  top: 50%;
+  left: 40%;
+  background: radial-gradient(circle, rgba(255,215,0,0.08), transparent 70%);
+  animation: blobFloat3 10s ease-in-out infinite;
+}
+
+@keyframes blobFloat1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(30px, 20px) scale(1.1); }
+}
+
+@keyframes blobFloat2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-20px, -30px) scale(1.15); }
+}
+
+@keyframes blobFloat3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(15px, -15px) scale(0.9); }
+}
+
+/* ─── Hero Section ─── */
+.landing-hero {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 8vh;
+  max-width: 800px;
+}
+
+.landing-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 1.4rem;
+  border-radius: 100px;
+  background: rgba(232,243,237,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(12px);
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(232,243,237,0.7);
+}
+
+.landing-badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #00FF88;
+  box-shadow: 0 0 12px rgba(0,255,136,0.5);
+  animation: live-pulse 2s infinite;
+}
+
+.landing-title {
+  margin-top: 2.5rem;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: #F5F5DC;
+  letter-spacing: -0.02em;
+}
+
+.landing-title-accent {
+  background: linear-gradient(135deg, #00FF88 0%, #A3B68D 50%, #FFD700 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.landing-subtitle {
+  margin-top: 1.8rem;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: rgba(232,243,237,0.65);
+  max-width: 600px;
+}
+
+/* ─── CTA Button ─── */
+.landing-cta {
+  margin-top: 2.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2.4rem;
+  border-radius: 100px;
+  border: 1px solid rgba(0,255,136,0.3);
+  background: linear-gradient(135deg, rgba(0,255,136,0.15), rgba(74,103,65,0.3));
+  backdrop-filter: blur(12px);
+  color: #E8F3ED;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(0,255,136,0.15);
+}
+
+.landing-cta:hover {
+  background: linear-gradient(135deg, rgba(0,255,136,0.25), rgba(74,103,65,0.45));
+  border-color: rgba(0,255,136,0.5);
+}
+
+/* ─── Features Section ─── */
+.landing-features {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  max-width: 900px;
+  width: 100%;
+  margin-top: 6rem;
+}
+
+.landing-feature-card {
+  padding: 2rem;
+  border-radius: 24px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(232,243,237,0.04);
+  backdrop-filter: blur(16px);
+  transition: all 0.3s ease;
+}
+
+.landing-feature-icon {
+  font-size: 2.2rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.landing-feature-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #F5F5DC;
+  margin-bottom: 0.6rem;
+}
+
+.landing-feature-desc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: rgba(232,243,237,0.55);
+}
+
+/* ─── SDG Section ─── */
+.landing-sdg-section {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  margin-top: 5rem;
+  margin-bottom: 6rem;
+}
+
+.landing-sdg-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: #F5F5DC;
+  margin-bottom: 2rem;
+}
+
+.landing-sdg-badges {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.landing-sdg-badge {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.8rem;
+  border-radius: 20px;
+  border: 1px solid;
+  background: rgba(0,0,0,0.3);
+  backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+}
+
+.landing-sdg-number {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.landing-sdg-title {
+  font-size: 0.9rem;
+  color: rgba(232,243,237,0.75);
+  text-align: left;
+}
+
+/* ─── Project Info Panel (bottom-right) ─── */
+.landing-info-panel {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 10;
+  width: 280px;
+  padding: 1.4rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(4,13,8,0.85);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 20px rgba(0,255,136,0.08);
+  font-size: 0.78rem;
+  color: rgba(232,243,237,0.7);
+}
+
+.landing-info-header {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #00FF88;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+
+.landing-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.25rem 0;
+}
+
+.landing-info-label {
+  color: rgba(232,243,237,0.45);
+  font-size: 0.72rem;
+}
+
+.landing-info-value {
+  color: #F5F5DC;
+  font-weight: 600;
+  font-size: 0.72rem;
+  text-align: right;
+}
+
+.landing-info-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.08);
+  margin: 0.6rem 0;
+}
+
+.landing-info-member {
+  padding: 0.2rem 0;
+  color: rgba(232,243,237,0.65);
+  display: flex;
+  justify-content: space-between;
+}
+
+.landing-info-member span {
+  color: rgba(163,182,141,0.8);
+  font-weight: 600;
+}
+
+.landing-info-sdg {
+  padding: 0.2rem 0;
+  color: rgba(232,243,237,0.6);
+  font-size: 0.72rem;
+}
+
+.landing-info-sdg span {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+/* ─── Particles canvas ─── */
+.landing-particles {
+  opacity: 0.6;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 768px) {
+  .landing-hero {
+    margin-top: 4vh;
+  }
+
+  .landing-info-panel {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    width: 100%;
+    max-width: 400px;
+    margin: 3rem auto 2rem;
+  }
+
+  .landing-features {
+    grid-template-columns: 1fr;
+  }
+}
